@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-brand-bg: #050505;
+  --color-panel-bg: #080808;
+  --color-control-bg: #0c0c0c;
+  --color-cyan-glow: #06b6d4;
+  --color-pink-glow: #ec4899;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-white font-sans overflow-hidden;
+    background-image: 
+      radial-gradient(circle at 2px 2px, rgba(6, 182, 212, 0.05) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+}
+
+.geometric-border {
+  @apply border border-cyan-glow/30;
+}
+
+.cyan-neon-glow {
+  box-shadow: 0 0 15px var(--color-cyan-glow);
+}
+
+.pink-neon-glow {
+  box-shadow: 0 0 15px var(--color-pink-glow);
+}
+
+.scanlines {
+  position: relative;
+}
+
+.scanlines::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+  z-index: 2;
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
